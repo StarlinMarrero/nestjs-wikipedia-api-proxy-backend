@@ -11,7 +11,7 @@ export class FeedController {
     async getSummary(@Query() query: GetFeedDto) {
         const { data, error } = await this.feedService.getFeeds(query.lang, query.date);
         if (error) {
-            return new HttpException(error, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new HttpException(error.response, error.response.status || HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return data;
     }

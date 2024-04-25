@@ -1,9 +1,9 @@
 import { Injectable } from "@nestjs/common";
-import { WikipediaAxiosProvider } from "src/axios-provider/axios-wikipedia";
+import { WikipediaProvider } from "src/axios-provider/wikipedia/wikipedia.provider";
 
 @Injectable()
 export class FeedService {
-    constructor(private readonly wikipediaAxiosProvider: WikipediaAxiosProvider) {}
+    constructor(private readonly wikipediaAxiosProvider: WikipediaProvider) {}
 
     async getFeeds(lang: string, date: string = new Date().toISOString()) {
         return await this.wikipediaAxiosProvider.getFeeds(lang, date);

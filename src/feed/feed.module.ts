@@ -1,10 +1,10 @@
 import { Module } from "@nestjs/common";
 import { FeedController } from "./feed.controller";
-import { WikipediaAxiosProvider } from "src/axios-provider/axios-wikipedia";
+import { WikipediaProvider } from "src/axios-provider/wikipedia/wikipedia.provider";
 import { FeedService } from './feed.service';
 
 @Module({
     controllers: [FeedController],
-    providers: [WikipediaAxiosProvider, FeedService],
+    providers: [WikipediaProvider, FeedService],
 })
 export class FeedModule {}

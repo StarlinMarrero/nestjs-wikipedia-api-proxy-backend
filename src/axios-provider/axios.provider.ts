@@ -2,10 +2,15 @@ import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from "axios";
 
 export class AxiosProvider {
     private readonly axios: AxiosInstance;
-    constructor(baseURL: string) {
+    constructor(baseURL: string, headers?: object, config?: AxiosRequestConfig) {
         this.axios = axios.create({
             baseURL,
             withCredentials: true,
+            headers: {
+                "Content-Type": "application/json",
+                ...headers,
+            },
+            ...config,
         });
     }
 

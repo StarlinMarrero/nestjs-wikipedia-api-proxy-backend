@@ -1,11 +1,11 @@
-import { AxiosProvider } from "./axios-provider";
-import { wikipediaConfig } from "../config";
+import { AxiosProvider } from "../axios.provider";
+import { wikipediaConfig } from "../../config/configuration";
 import { Injectable } from "@nestjs/common";
 import { AxiosError } from "axios";
 import { IWikipediaFeedResponse } from "./interfaces/wikipedia.interfaces";
 
 @Injectable()
-export class WikipediaAxiosProvider extends AxiosProvider {
+export class WikipediaProvider extends AxiosProvider {
     constructor() {
         super(`${wikipediaConfig.baseUrl}`);
     }

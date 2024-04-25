@@ -1,8 +1,9 @@
 import { Module } from "@nestjs/common";
-import { WikipediaAxiosProvider } from "./axios-wikipedia";
+import { WikipediaProvider } from "./wikipedia/wikipedia.provider";
+import { TranslationProvider } from './translation/translation.provider';
 
 @Module({
     imports: [],
-    providers: [WikipediaAxiosProvider],
+    providers: [WikipediaProvider, TranslationProvider],
 })
 export class AxiosProvidersModule {}
