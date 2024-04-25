@@ -15,8 +15,6 @@ export class FeedController {
     async getSummary(@Query() query: GetFeedDto) {
         const { data, error } = await this.feedService.getFeeds(query.lang, query.date);
 
-        this.logService.create("info", "Get feed summary");
-
         if (error) {
             this.logService.create("error", "Failed to get feed summary");
             return new HttpException(error.response, error.response.status || HttpStatus.INTERNAL_SERVER_ERROR);
