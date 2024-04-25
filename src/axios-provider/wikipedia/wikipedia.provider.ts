@@ -2,7 +2,7 @@ import { AxiosProvider } from "../axios.provider";
 import { wikipediaConfig } from "../../config/configuration";
 import { Injectable } from "@nestjs/common";
 import { AxiosError } from "axios";
-import { IWikipediaFeedResponse } from "./interfaces/wikipedia.interfaces";
+import { IWikipediaFeedResponse, TypeLanguage } from "./interfaces/wikipedia.interfaces";
 
 @Injectable()
 export class WikipediaProvider extends AxiosProvider {
@@ -10,7 +10,7 @@ export class WikipediaProvider extends AxiosProvider {
         super(`${wikipediaConfig.baseUrl}`);
     }
 
-    async getFeeds(lang: string, date: string): Promise<{ data?: IWikipediaFeedResponse; error?: AxiosError }> {
+    async getFeeds(lang: TypeLanguage, date: string): Promise<{ data?: IWikipediaFeedResponse; error?: AxiosError }> {
         const dateObj = new Date(date);
 
         const year = dateObj.getFullYear();

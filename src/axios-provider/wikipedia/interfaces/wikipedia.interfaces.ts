@@ -18,7 +18,7 @@ export interface Link {
     wikibase_item: string;
     titles: Titles;
     pageid: number;
-    lang: string;
+    lang: TypeLanguage;
     dir: string;
     revision: string;
     tid: string;
@@ -30,6 +30,36 @@ export interface Link {
     extract_html: string;
     normalizedtitle: string;
 }
+
+export enum EnumLanguage {
+    Bengali = "bn",
+    German = "de",
+    Greek = "el",
+    English = "en",
+    Hebrew = "he",
+    Hungarian = "hu",
+    Japanese = "ja",
+    Latin = "la",
+    Sindhi = "sd",
+    Swedish = "sv",
+    Urdu = "ur",
+    Chinese = "zh",
+    Bosnian = "bs",
+    Danish = "da",
+    Spanish = "es",
+    Finnish = "fi",
+    French = "fr",
+    Korean = "ko",
+    NorwegianBokmal = "no",
+    Polish = "pl",
+    Portuguese = "pt",
+    Russian = "ru",
+    Scots = "sco",
+    Vietnamese = "vi",
+    Arabic = "ar",
+}
+
+export type TypeLanguage = `${EnumLanguage}`;
 
 export interface ContentUrls {
     desktop: Desktop;

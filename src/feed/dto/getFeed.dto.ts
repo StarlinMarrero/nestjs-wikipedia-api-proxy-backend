@@ -1,10 +1,13 @@
-import { IsDate, IsOptional, IsString, Max, MaxLength, Min } from "class-validator";
+import { IsDate, IsEnum, IsOptional, IsString, Max, MaxLength, Min } from "class-validator";
+import { EnumLanguage, TypeLanguage } from "src/axios-provider/wikipedia/interfaces/wikipedia.interfaces";
 
 export class GetFeedDto {
     @IsOptional()
-    @IsString()
+    @IsEnum(EnumLanguage, {
+        message: `language must be a valid ISO 639-1 language code`,
+    })
     @MaxLength(2)
-    lang: string = "en";
+    lang: TypeLanguage = "en";
 
     @IsOptional()
     @IsString()
