@@ -16,8 +16,8 @@ export class FeedController {
         const { data, error } = await this.feedService.getFeeds(query.lang, query.date);
 
         if (error) {
-            this.logService.create("error", "Failed to get feed summary");
-            return new HttpException(error.response, error.response.status || HttpStatus.INTERNAL_SERVER_ERROR);
+            this.logService.create("error", JSON.stringify(error));
+            return new HttpException(error.response.data, error.response.status || HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
         return data;
@@ -29,8 +29,8 @@ export class FeedController {
         const { data, error } = await this.feedService.getFeeds(language, `${year}-${month}-${day}`);
 
         if (error) {
-            this.logService.create("error", "Failed to translate feed");
-            return new HttpException(error.response, error.response.status || HttpStatus.INTERNAL_SERVER_ERROR);
+            this.logService.create("error", JSON.stringify(error));
+            return new HttpException(error.response.data, error.status);
         }
         return data;
     }

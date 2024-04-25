@@ -3,6 +3,17 @@ export interface ITranslationResponse {
     translatedText: string;
 }
 
+export interface IErrorResponseAxios {
+    response: Response;
+    status: number;
+    message: string;
+    name: string;
+}
+
+export interface Response {
+    error: string;
+}
+
 export interface DetectedLanguage {
     confidence: number;
     language: string;

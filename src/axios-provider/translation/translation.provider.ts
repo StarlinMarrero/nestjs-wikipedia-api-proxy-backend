@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { AxiosProvider } from "../axios.provider";
 import { translationConfig } from "src/config/configuration";
-import { ITranslationRequest, ITranslationResponse } from "./interfaces";
+import { IErrorResponseAxios, ITranslationRequest, ITranslationResponse } from "./interfaces";
 import { AxiosError } from "axios";
 import { ConfigService } from "@nestjs/config";
 
@@ -12,7 +12,7 @@ export class TranslationProvider extends AxiosProvider {
     }
 
     async getTranslation(data: ITranslationRequest): Promise<{ data?: ITranslationResponse; error?: AxiosError }> {
-        return await this.post(`/translate`, {
+        return await this.post<ITranslationResponse>(`/translate`, {
             source: data?.source || "auto",
             target: data.target,
             q: data.q,
