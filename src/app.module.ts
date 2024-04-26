@@ -10,7 +10,7 @@ import { TranslationModule } from "./translation/translation.module";
 
 @Module({
     imports: [
-        ConfigModule.forRoot({ isGlobal: true, load: [configuration] }),
+        ConfigModule.forRoot({ isGlobal: true, load: [configuration], envFilePath: [".env"] }),
         FeedModule,
         AxiosProvidersModule,
         TranslationModule,
