@@ -3,6 +3,7 @@ import { FeedTranslateDto } from "./dto/feedTranslate.dto";
 import { GetFeedDto } from "./dto/getFeed.dto";
 import { FeedService } from "./feed.service";
 import { LogService } from "src/log/log.service";
+import { ApiBody, ApiParam } from "@nestjs/swagger";
 
 @Controller("/feed")
 export class FeedController {
